@@ -1,0 +1,631 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actions Team</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= SIGN UP ================= -->
+    <section id="signupPage" class="page active">
+        <div class="auth-container">
+            <div class="logo">⚡</div>
+
+            <h1>Actions Team</h1>
+            <p class="subtitle">Team Management System</p>
+
+            <form id="signupForm" class="form-card">
+                <h2>Create Account</h2>
+
+                <label for="userName">Name</label>
+                <input
+                    id="userName"
+                    type="text"
+                    placeholder="Enter your name"
+                    required
+                >
+
+                <label for="userId">ID</label>
+                <input
+                    id="userId"
+                    type="text"
+                    placeholder="Enter your ID"
+                    required
+                >
+
+                <label for="userRank">Rank</label>
+                <select id="userRank" required>
+                    <option value="">Select rank</option>
+                    <option value="ADM">ADM</option>
+                    <option value="AUX">AUX</option>
+                    <option value="LD">LD</option>
+                    <option value="SUB.LD">SUB.LD</option>
+                    <option value="ACT">ACT</option>
+                </select>
+
+                <button type="submit" class="primary-button">
+                    Enter Dashboard
+                </button>
+            </form>
+        </div>
+    </section>
+
+
+    <!-- ================= DASHBOARD ================= -->
+    <section id="dashboardPage" class="page">
+
+        <header class="topbar">
+            <div>
+                <div class="brand">⚡ ACTIONS TEAM</div>
+                <div id="dashboardUser" class="user-display"></div>
+            </div>
+
+            <button
+                id="changeAccountButton"
+                class="secondary-button"
+                type="button"
+            >
+                Change Account
+            </button>
+        </header>
+
+        <main class="dashboard-container">
+
+            <div id="rankBanner" class="rank-banner"></div>
+
+            <div class="dashboard-cards">
+
+                <div class="info-card">
+                    <span>Name & ID</span>
+                    <strong id="cardName">—</strong>
+                    <small id="cardId">—</small>
+                </div>
+
+                <div class="info-card">
+                    <span>Rank</span>
+                    <strong id="cardRank">—</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>Team Status</span>
+                    <strong class="online-status">
+                        ● Active
+                    </strong>
+                </div>
+
+            </div>
+
+            <h2 class="section-title">Quick Actions</h2>
+
+            <div class="quick-actions">
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="teamPage"
+                >
+                    <span>👥</span>
+                    Team Information
+                </button>
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="membersPage"
+                >
+                    <span>🧑‍🤝‍🧑</span>
+                    Members
+                </button>
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="announcementsPage"
+                >
+                    <span>📢</span>
+                    Announcements
+                </button>
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="schedulePage"
+                >
+                    <span>📅</span>
+                    Schedule
+                </button>
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="logActionPage"
+                >
+                    <span>✅</span>
+                    Log Action
+                </button>
+
+                <button
+                    type="button"
+                    class="action-button"
+                    data-page="leaderboardPage"
+                >
+                    <span>🏆</span>
+                    Leaderboard
+                </button>
+
+            </div>
+
+        </main>
+    </section>
+
+
+    <!-- ================= TEAM ================= -->
+    <section id="teamPage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Team Information</h1>
+        </header>
+
+        <main class="content-container">
+
+            <div class="large-card">
+                <h2>Actions Team</h2>
+                <p>
+                    Welcome to the Actions Team management dashboard.
+                </p>
+
+                <div class="team-rules">
+                    <div>
+                        <strong>ADM</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                    <div>
+                        <strong>AUX</strong>
+                        <span>Assistant</span>
+                    </div>
+
+                    <div>
+                        <strong>LD</strong>
+                        <span>Leader</span>
+                    </div>
+
+                    <div>
+                        <strong>SUB.LD</strong>
+                        <span>Sub Leader</span>
+                    </div>
+
+                    <div>
+                        <strong>ACT</strong>
+                        <span>Action Team Member</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </section>
+
+
+    <!-- ================= MEMBERS ================= -->
+    <section id="membersPage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Members</h1>
+
+            <button
+                id="addMemberButton"
+                class="primary-button small-button"
+                type="button"
+            >
+                + Add Member
+            </button>
+        </header>
+
+        <main class="content-container">
+            <div id="membersList" class="members-list"></div>
+        </main>
+    </section>
+
+
+    <!-- ================= ANNOUNCEMENTS ================= -->
+    <section id="announcementsPage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Announcements</h1>
+
+            <button
+                id="postAnnouncementButton"
+                class="primary-button small-button"
+                type="button"
+            >
+                + Post
+            </button>
+        </header>
+
+        <main class="content-container">
+            <div
+                id="announcementsList"
+                class="announcements-list"
+            ></div>
+        </main>
+    </section>
+
+
+    <!-- ================= SCHEDULE ================= -->
+    <section id="schedulePage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Schedule</h1>
+
+            <button
+                id="addScheduleButton"
+                class="primary-button small-button"
+                type="button"
+            >
+                + Add Schedule
+            </button>
+        </header>
+
+        <main class="content-container">
+            <div id="scheduleList" class="schedule-list"></div>
+        </main>
+    </section>
+
+
+    <!-- ================= LOG ACTION ================= -->
+    <section id="logActionPage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Log Action</h1>
+        </header>
+
+        <main class="content-container">
+
+            <div class="large-card">
+
+                <label for="actionName">Action Name</label>
+                <input
+                    id="actionName"
+                    type="text"
+                    placeholder="Enter action name"
+                >
+
+                <label for="actionDate">Date</label>
+                <input
+                    id="actionDate"
+                    type="date"
+                >
+
+                <div class="attendee-header">
+                    <h2>Attendees</h2>
+
+                    <button
+                        id="toggleAttendeeFormButton"
+                        type="button"
+                        class="secondary-button"
+                    >
+                        + Add Attended
+                    </button>
+                </div>
+
+                <div
+                    id="attendeeForm"
+                    class="attendee-add-form hidden"
+                >
+                    <input
+                        id="newAttendeeName"
+                        type="text"
+                        placeholder="Member name"
+                    >
+
+                    <input
+                        id="newAttendeeId"
+                        type="text"
+                        placeholder="Member ID"
+                    >
+
+                    <select id="newAttendeeRank">
+                        <option value="ADM">ADM</option>
+                        <option value="AUX">AUX</option>
+                        <option value="LD">LD</option>
+                        <option value="SUB.LD">SUB.LD</option>
+                        <option value="ACT" selected>ACT</option>
+                    </select>
+
+                    <button
+                        id="addAttendeeButton"
+                        type="button"
+                        class="primary-button"
+                    >
+                        Add Member
+                    </button>
+                </div>
+
+                <div
+                    id="attendeeList"
+                    class="attendee-list"
+                ></div>
+
+                <button
+                    id="logActionButton"
+                    type="button"
+                    class="primary-button full-button"
+                >
+                    Log Action
+                </button>
+
+            </div>
+
+        </main>
+    </section>
+
+
+    <!-- ================= LEADERBOARD ================= -->
+    <section id="leaderboardPage" class="page">
+
+        <header class="page-header">
+            <button
+                class="back-button"
+                type="button"
+                data-page="dashboardPage"
+            >
+                ← Back
+            </button>
+
+            <h1>Leaderboard</h1>
+        </header>
+
+        <main class="content-container">
+
+            <section>
+                <h2 class="section-title">Top Members</h2>
+                <div id="podium" class="podium"></div>
+            </section>
+
+            <section>
+                <h2 class="section-title">All Members</h2>
+                <div
+                    id="leaderboardList"
+                    class="leaderboard-list"
+                ></div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Recent Actions</h2>
+                <div
+                    id="historyList"
+                    class="history-list"
+                ></div>
+            </section>
+
+        </main>
+    </section>
+
+
+    <!-- ================= LOADING ================= -->
+    <section id="loadingPage" class="page loading-page">
+
+        <div class="loading-box">
+            <div class="spinner"></div>
+
+            <h1>Logging Action</h1>
+            <p>Please wait...</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= MEMBER MODAL ================= -->
+    <div id="memberModal" class="modal">
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <h2>Add Member</h2>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    data-close-modal="memberModal"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="memberForm">
+
+                <label for="memberName">Name</label>
+                <input
+                    id="memberName"
+                    type="text"
+                    required
+                >
+
+                <label for="memberId">ID</label>
+                <input
+                    id="memberId"
+                    type="text"
+                    required
+                >
+
+                <label for="memberRank">Rank</label>
+                <select id="memberRank" required>
+                    <option value="ADM">ADM</option>
+                    <option value="AUX">AUX</option>
+                    <option value="LD">LD</option>
+                    <option value="SUB.LD">SUB.LD</option>
+                    <option value="ACT" selected>ACT</option>
+                </select>
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    Add Member
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- ================= SCHEDULE MODAL ================= -->
+    <div id="scheduleModal" class="modal">
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <h2 id="scheduleModalTitle">
+                    Add Schedule
+                </h2>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    data-close-modal="scheduleModal"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="scheduleForm">
+
+                <label for="scheduleDay">Day</label>
+                <select id="scheduleDay" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+
+                <label for="scheduleAction">Action</label>
+                <input
+                    id="scheduleAction"
+                    type="text"
+                    placeholder="Enter action"
+                    required
+                >
+
+                <label for="scheduleTime">Time</label>
+                <input
+                    id="scheduleTime"
+                    type="time"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    Save Schedule
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <!-- ================= ANNOUNCEMENT MODAL ================= -->
+    <div id="announcementModal" class="modal">
+
+        <div class="modal-box">
+
+            <div class="modal-header">
+                <h2>Post Announcement</h2>
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    data-close-modal="announcementModal"
+                >
+                    ×
+                </button>
+            </div>
+
+            <form id="announcementForm">
+
+                <label for="announcementTitle">Title</label>
+                <input
+                    id="announcementTitle"
+                    type="text"
+                    required
+                >
+
+                <label for="announcementDescription">
+                    Description
+                </label>
+
+                <textarea
+                    id="announcementDescription"
+                    rows="6"
+                    required
+                ></textarea>
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    Post Announcement
+                </button>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <div id="toast" class="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+```
